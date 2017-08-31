@@ -1,0 +1,61 @@
+<!--
+  --The Links for the "style" is being given in the <head> section
+  --In <body> There are the buttons that are used for the navigation are present followed by the div which is used for showing the content
+  --"ui-sref" is used in the anchor tab because we are using UI Router. This gives the link for the corresponding references
+  --"ui-view" is the place where all the contents of the templates are located
+  --The "show more" button-----------------------------
+  --"scroll to the top functionality"------------------
+  ---->
+
+
+<!DOCTYPE html>
+<html lang="en" ng-app="movieModule">
+    <head>
+        <!--referance-->
+        <meta charset="UTF-8">
+        <title>Movies App</title>
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/3/w3.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+        <link rel="stylesheet" href="assets/css/Styles.css">
+    </head>
+
+    <body>
+
+        <button class="tablink" id="alwaysOpen"><a ui-sref='nowShowing'>Now Showing</a></button>
+        <button class="tablink" ><a ui-sref='upcoming'>Upcoming</a></button>
+        <button class="tablink" ><a ui-sref='latest'>Latest</a></button>
+        <button class="tablink" ><a ui-sref='popular'>Popular</a></button>
+
+        <div id="movieBody">
+            <div >
+                <ui-view></ui-view>
+            </div>
+        </div>
+
+        <br/>
+        <br/>
+
+        <input id="showMoreBtnId" type="button" value="Show More!!" class="showMoreBtn" ng-click="movieService.showMore()">
+
+        <br/>
+        <br/>
+
+        <a href="#" class="scrollup"><a href="http://www.jqueryscript.net/tags.php?/Scroll/"></a></a>
+
+        <script src="assets/js/angular.js"></script>
+        <script src="assets/js/angular-ui-router.js"></script>
+        <script src="app/app.module.js"></script>
+        <script src="app/app.route.js"></script>
+        <script src="app/shared/constants/constants.js"></script>
+        <script src="app/components/nowShowing/nowShowing_Ctrl.js"></script>
+        <script src="app/components/popular/popular_Ctrl.js"></script>
+        <script src="app/components/upcoming/upcoming_Ctrl.js"></script>
+        <script src="app/components/latest/latest_Ctrl.js"></script>
+        <script src="app/shared/service/movie_Service.js"></script>
+        <script src="app/components/modal/modal_Ctrl.js"></script>
+        <script src="app/components/modal/modal_Service.js"></script>
+
+    </body>
+</html>

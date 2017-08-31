@@ -1,0 +1,30 @@
+
+<!--
+  -- HTML for modal creation
+  -- the data that is coming is manipulated as needed and the modal is created
+  -- <span> element that closes the modal
+  ---->
+
+<div id="myModal" class="modal">
+    <div class="modal-header">
+        <h2>
+            {{response.original_title}}
+            <span class="close">&times;</span>
+        </h2>
+    </div>
+
+    <div class="modal-body">
+        <div class="modal-content container">
+            <img id="backimg" style="width:400px;" src="http://image.tmdb.org/t/p/w185/{{response.backdrop_path}}"/>
+            <br/>
+            <br/>
+            <p> Votes : {{response.vote_average}}</p>
+            <p>Description : {{response.id}}</p>
+            <p>Description : {{response.overview}}</p>
+        </div>
+    </div>
+
+    <div class="modal-footer">
+        <h2> ...</h2>
+    </div>
+</div>
