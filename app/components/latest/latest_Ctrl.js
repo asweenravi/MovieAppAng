@@ -7,11 +7,8 @@
 app.controller('latestController', function ($scope,movieService) {
     var data = movieService.getNowShowing()
         .then(function (value) {
-            debugger;
             $scope.response = value;
-            debugger;
             console.log("val",$scope.response,value);
-            return $scope.response;
         });
 });
 

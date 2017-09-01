@@ -10,12 +10,10 @@ app.factory('modalService', function ($http, $stateParams) {
     };
 
     function findMovieByMovieName() {
-        debugger;
         var url = "https://api.themoviedb.org/3/movie/" + $stateParams.id + "?api_key=fb5875eace5a99021e9a7dc4728b1a6b&language=en-US";
         return $http.get(url)
             .then(function (data1)
             {
-                debugger;
                 return data1.data;
             });
         }

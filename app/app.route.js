@@ -11,17 +11,17 @@
  ****/
 
 app.config(function ($stateProvider,$urlMatcherFactoryProvider,$urlRouterProvider) {
-    $urlRouterProvider.otherwise("/nowShowing");
+    $urlRouterProvider.otherwise("/now_playing/1");
     $urlMatcherFactoryProvider.caseInsensitive(true);
     $stateProvider
         .state("now_playing", {
-            url: "/nowShowing",
+            url: "/now_playing/:movieid",
             templateUrl:"app/components/nowShowing/nowShowing.html",
             controller: 'nowShowingController'
         })
 
         .state("upcoming", {
-            url: "/upcoming",
+            url: "/upcoming/:movieid",
             templateUrl:"app/components/upcoming/upcoming.html",
             controller: 'upcomingController'
         })
@@ -33,7 +33,7 @@ app.config(function ($stateProvider,$urlMatcherFactoryProvider,$urlRouterProvide
         })
 
         .state("popular", {
-            url: "/popular",
+            url: "/popular/:movieid",
             templateUrl:"app/components/popular/popular.html",
             controller: 'popularController'
         })

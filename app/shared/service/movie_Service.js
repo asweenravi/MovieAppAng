@@ -8,19 +8,19 @@
  ** "$http.get" is used for issuing a get request(api call)
  ****/
 
-app.factory('movieService', function ($http,$state,constants1) {
+app.factory('movieService', function ($http,$q,$state,constants1) {
     return{
         getNowShowing : getNowShowing
     };
+
     function getNowShowing() {
-        var url = constants1.baseUrl + $state.current.name + constants1.api_key + constants1.language + constants1.page+constants1.index;
-        debugger;
-        alert(url);
-        debugger;
-        return $http.get(url)
-            .then(function (data1) {
-                debugger;
-                return data1.data
+        var deferred = $q.defer();
+        var url = constants1.baseUrl + $state.current.name + constants1.api_key + constants1.language + constants1.page + constants1.index;
+        $http.get(url)
+            .then(function(response){
+                deferred.resolve(response);
             });
+
+       return deferred.promise;
     }
 });

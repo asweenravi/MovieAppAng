@@ -8,9 +8,8 @@
 app.controller('nowShowingController', function ($scope,movieService) {
     var data = movieService.getNowShowing()
         .then(function (value) {
-            $scope.response = value.results;
+            $scope.response = value.data.results;
             console.log("val",$scope.response,value);
-            return $scope.response;
         });
 });
 
@@ -21,7 +20,6 @@ app.controller('nowShowingController', function ($scope,movieService) {
  ****/
 
 function showModel() {
-    debugger;
     var modal = document.getElementById('myModal');
     var span = document.getElementsByClassName("close")[0];
     modal.style.display = "block";

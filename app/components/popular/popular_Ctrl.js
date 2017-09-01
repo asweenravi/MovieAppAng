@@ -8,9 +8,8 @@
 app.controller('popularController', function ($scope,movieService) {
     var data = movieService.getNowShowing()
         .then(function (value) {
-            $scope.response = value.results;
-            console.log("val",$scope.response,value);
-            return $scope.response;
+            $scope.response=value.data.results;
+            console.log("val",$scope.response);
         });
 });
 
@@ -20,7 +19,6 @@ app.controller('popularController', function ($scope,movieService) {
  ****/
 
 function showModel() {
-    debugger;
     var modal = document.getElementById('myModal');
     var span = document.getElementsByClassName("close")[0];
     modal.style.display = "block";

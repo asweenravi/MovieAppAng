@@ -9,7 +9,6 @@ app.controller("modalController", function ($scope, modalService) {
     var data = modalService.findMovieByMovieName()
         .then(function (value) {
             $scope.response = value;
-            debugger;
             showModel();
         });
     alert($scope.response);

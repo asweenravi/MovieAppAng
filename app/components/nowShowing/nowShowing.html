@@ -6,24 +6,33 @@
   -- "More Info" button triggers the modal and the modal appears in the child binding element
   ---->
 
-<div ng-repeat="movie in response" class="container" style="border: 1px solid black;padding-bottom: 20px ; padding-top:20px;">
 
-    <!--image div-->
-    <div class="col-lg-3">
-        <img src="http://image.tmdb.org/t/p/w185{{movie.poster_path}}" onerror="this.src='noImageFound.jpg'" />
+<div ng-if="response.length>0">
+    <div ng-repeat="movie in response" class="container" style="border: 1px solid black;padding-bottom: 20px ; padding-top:20px;">
+
+        <!--image div-->
+        <div class="col-lg-3">
+            <img ng-src="http://image.tmdb.org/t/p/w185{{movie.poster_path}}" onerror="this.src='noImageFound.jpg'" />
+        </div>
+
+        <!--content div-->
+        <div class ="col-lg-9">
+            <h2 class="center">{{movie.original_title}}</h2>
+            <p>{{movie.overview}}</p>
+            <button style="float:right;background-color:#3e8e41;color:#fff;border-radius:10px;">
+                <a ui-sref="now_playing.modal({id: movie.id})">More Info</a>
+            </button>
+        </div>
     </div>
 
-    <!--content div-->
-    <div class ="col-lg-9">
-        <h2 class="center">{{movie.original_title}}</h2>
-        <p>{{movie.overview}}</p>
-        <button style="float:right;background-color:#3e8e41;color:#fff;border-radius:10px;">
-            <a ui-sref="now_playing.modal({id: movie.id})">More Info</a>
-        </button>
+    <!--child view for the modal-->
+    <div>
+        <ui-view></ui-view>
     </div>
 </div>
-
-<!--child view for the modal-->
-<div>
-    <ui-view></ui-view>
+<br/>
+<br/>
+<div >
+    <show-previous><input id="previousBtnId" type="button" value=" Previous!! " class="showMoreBtn" ></show-previous>
+    <show-next><input id="nextBtnId" type="button" value="    Next!!    " class="showMoreBtn" ></show-next>
 </div>

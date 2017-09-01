@@ -3,7 +3,6 @@
   --In <body> There are the buttons that are used for the navigation are present followed by the div which is used for showing the content
   --"ui-sref" is used in the anchor tab because we are using UI Router. This gives the link for the corresponding references
   --"ui-view" is the place where all the contents of the templates are located
-  --The "show more" button-----------------------------
   --"scroll to the top functionality"------------------
   ---->
 
@@ -23,21 +22,16 @@
 
     <body>
 
-        <button class="tablink" id="alwaysOpen"><a ui-sref='nowShowing'>Now Showing</a></button>
-        <button class="tablink" ><a ui-sref='upcoming'>Upcoming</a></button>
-        <button class="tablink" ><a ui-sref='latest'>Latest</a></button>
-        <button class="tablink" ><a ui-sref='popular'>Popular</a></button>
+        <button class="tablink" ><a ui-sref='now_playing({movieid:1})'>Now Showing</a></button>
+        <button class="tablink" ><a ui-sref='upcoming({movieid:1})'>Upcoming</a></button>
+        <button class="tablink" ><a ui-sref='latest({movieid:1})'>Latest</a></button>
+        <button class="tablink" ><a ui-sref='popular({movieid:1})'>Popular</a></button>
 
         <div id="movieBody">
             <div >
                 <ui-view></ui-view>
             </div>
         </div>
-
-        <br/>
-        <br/>
-
-        <input id="showMoreBtnId" type="button" value="Show More!!" class="showMoreBtn" ng-click="movieService.showMore()">
 
         <br/>
         <br/>
@@ -56,6 +50,8 @@
         <script src="app/shared/service/movie_Service.js"></script>
         <script src="app/components/modal/modal_Ctrl.js"></script>
         <script src="app/components/modal/modal_Service.js"></script>
+        <script src="app/shared/directive/showNext.js"></script>
+        <script src="app/shared/directive/showPrevious.js"></script>
 
     </body>
 </html>
